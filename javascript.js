@@ -1,96 +1,75 @@
 // Pseudocodigo guia 
+// Un loop que use generalBLock 5 veces
+function rounds(){}
+function generalBlock(){   // Paso 1
+    // Obtener la información del usuario
+    /* Se debera añadir un prompt() para saber la informacion. Tiene que ser case sensitive. 
+    Guardar el resultado*/
+    const getUser = prompt("Rock, Paper or Scissor?");
+    console.log(getUser)
 
-// Paso 1
-// Obtener la información del usuario
-/* Se debera añadir un prompt() para saber la informacion. Tiene que ser case sensitive. 
-Guardar el resultado*/
-// const getUserChoice = prompt("Piedra, Papel o Tijera?");
-// console.log(getUserChoice)
+    // Paso 1.1
+    // Ya que es Case sensitive si el usuario pone alguno invalido volver a pedirlo.
 
-// Paso 1.1
-// Ya que es Case sensitive si el usuario pone alguno invalido volver a pedirlo.
+    // Paso 2
+    // Darle a escoger a la maquina
+    // Hacer que escoja un número de 1 a 3 y comparar esos números con cualquiera de las opciones asignandoles cada una
+    /* Tiene que escoger uno de 3. GUardar el resultado. */
 
-// Paso 2
-// Darle a escoger a la maquina
-// Hacer que escoja un número de 1 a 3 y comparar esos números con cualquiera de las opciones asignandoles cada una
-/* Tiene que escoger uno de 3. GUardar el resultado. */
+    // BLoque CPU
+    function cpuBlock () {
+        let words = ['Rock', 'Paper', 'Scissor'];
+        let word = words[Math.floor(Math.random()*words.length)];
+        console.log(word);
+    }
+    cpuBlock();
+    Choice();
+    function Choice () {    
+        switch(getUser) {
+            case 'Rock':
+                if(getUser === cpuBlock) {
+                    console.log('draw');
+                }
+                
+                else if(cpuBlock=== 'Scissor')
+                { console.log('victory');
+                }
 
-// BLoque CPU
+                else {
+                    console.log('derrota');
+                }
+                break;
 
-function getComputerChoice(max){
-    function cpuChoice(cpuRandom){
+            case 'Scissor':
+                if(getUser === cpuBlock) {
+                    console.log('draw');
+                }
+                
+                else if(cpuBlock=== 'Paper')
+                { console.log('victory');
+                }
 
-        function cpuRandom(max) {
-            return Math.floor(Math.random() * max);
+                else {
+                    console.log('derrota');
+                }
+                break;
+            
+            case 'Paper':
+                if(getUser === cpuBlock) {
+                    console.log('draw');
+                }
+                
+                else if(cpuBlock=== 'Rock')
+                { console.log('victory');
+                }
+
+                else {
+                    console.log('derrota');
+                }
+                break;
         }
-        console.log(cpuRandom(3))
-        
-    if (cpuRandom() === 0){
-        return cpuChoice = 'Tijera';
     }
-    else if (cpuRandom() === 1){
-        return cpuChoice = 'Piedra';
-    }
-    else if (cpuRandom() === 2){
-        return cpuChoice = 'Papel';
-    }
-    else {
-        return cpuChoice = 'Not defined';
-    }
-    
 }
-}
-console.log(getComputerChoice(3));
-
-// seria un math.random(1-3)
-/* 1 = tijera
-    2 = piedra
-    3 = papel */
-// const getComputerChoice = () ;
-
-// Paso 3
-// Ver cual de los dos es ganador
-// Puedo hacer que cuando gane la pc arroje false? y si arroja false entonces interpretarlo como una derrota
-
-// Paso 3.1
-// Comparar el resultado con tres posibles caminos para c/u
-
-// tipo 
-/*case (piedra)
-
-if(user === pc) {
-    console.log(draw);
-}
-else if(pc=== tijera)
-{ console.log(victory);
-}
-else (){
-    console.log(derrota);
-}
-
-*/
-
-/*Case2 (tijera)
-if(user === pc) {
-    console.log(draw);
-}
-else if(pc=== papel)
-{ console.log(victory);
-}
-else (){
-    console.log(derrota);
-}*/
-
-/*Case3 (papel)
-if(user === pc) {
-    console.log(draw);
-}
-else if(pc=== piedra)
-{ console.log(victory);
-}
-else (){
-    console.log(derrota);
-}*/
 
 /* Comparar e invocar ambos resultados y establecer una serie de if en el que dicte quien es el ganador.
 
