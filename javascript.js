@@ -1,11 +1,13 @@
-// Pseudocodigo guia 
-// Un loop que use generalBLock 5 veces
+
+// rounds hace un loop hasta que alguno de los jugadores llegue a 5
 function rounds(){
     for (let round = 0; pcCount < 5 || userCount < 5 ; round++){
         generalBlock();
         if (pcCount === 5) break;
        
         else if (userCount === 5 ) break;
+
+        console.log('round #' + '' + round);
     }
 if (pcCount === 5){
     console.log('The humanity cant be saved')
