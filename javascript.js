@@ -1,101 +1,59 @@
 // Pseudocodigo guia 
 // Un loop que use generalBLock 5 veces
-function rounds(){}
-function generalBlock(){   // Paso 1
-    // Obtener la información del usuario
-    /* Se debera añadir un prompt() para saber la informacion. Tiene que ser case sensitive. 
-    Guardar el resultado*/
-    const getUser = prompt("Rock, Paper or Scissor?");
-    console.log(getUser)
-
-    // Paso 1.1
-    // Ya que es Case sensitive si el usuario pone alguno invalido volver a pedirlo.
-
-    // Paso 2
-    // Darle a escoger a la maquina
-    // Hacer que escoja un número de 1 a 3 y comparar esos números con cualquiera de las opciones asignandoles cada una
-    /* Tiene que escoger uno de 3. GUardar el resultado. */
-
-    // BLoque CPU
-    function cpuBlock () {
-        let words = ['Rock', 'Paper', 'Scissor'];
-        let word = words[Math.floor(Math.random()*words.length)];
-        console.log(word);
-    }
-    cpuBlock();
-    Choice();
-    function Choice () {    
-        switch(getUser) {
-            case 'Rock':
-                if(getUser === cpuBlock) {
-                    console.log('draw');
-                }
-                
-                else if(cpuBlock=== 'Scissor')
-                { console.log('victory');
-                }
-
-                else {
-                    console.log('derrota');
-                }
-                break;
-
-            case 'Scissor':
-                if(getUser === cpuBlock) {
-                    console.log('draw');
-                }
-                
-                else if(cpuBlock=== 'Paper')
-                { console.log('victory');
-                }
-
-                else {
-                    console.log('derrota');
-                }
-                break;
-            
-            case 'Paper':
-                if(getUser === cpuBlock) {
-                    console.log('draw');
-                }
-                
-                else if(cpuBlock=== 'Rock')
-                { console.log('victory');
-                }
-
-                else {
-                    console.log('derrota');
-                }
-                break;
-        }
+function rounds(){
+    for (let round = 0; round < 5; round++){
+        generalBlock();
     }
 }
 
-/* Comparar e invocar ambos resultados y establecer una serie de if en el que dicte quien es el ganador.
-
-guardar resultado final en una variable nueva cada vez*/
-
-// const getResult = (getUserChoice, getComputerChoice) => {
-//     if (getUserChoice === getComputerChoice) {
-//         console.log("It's a Draw!")
-//     }
-
-//     if (getUserChoice !== getComputerChoice) {
-
-//     }
-
-// }
-
 // Paso 4
-// Mostrarlo en console
+// Llevar cuentas de las ganadas y perdidas.
+let pcCount = 0;
+let userCount = 0;
+rounds();
+function generalBlock(){   // Paso 1
+    // Obtener la información del usuario
+    /* Se debera añadir un prompt() para saber la informacion. Tiene que ser case insensitive. 
+    Guardar el resultado*/
 
-// Paso 5
-// Repetir Paso 1-4 hasta tener un total de 5 rondas
-// Básicamente hacer un loop, dar el resultado antes de repetir el siguiente ciclo
-/* Mantener el resultado final de cada una */
 
-// Paso 6
-// Identificar al ganador total
-// No estoy muy seguro de como hacerlo, estoy pensando en una serie de comparadores, que arrojen true o false y de allí 
-/* Usar los resultados totales para comparar quien seria el ganador */
+    function userPromptLowerC(){
+        const getUser = prompt("Rock, Paper or Scissor?");
+        let userLower = getUser.toLowerCase();
+        return userLower  
+        }
+// Paso 2
+// Obtener la decisión aleatoria de la pc entre 3 opciones.
+     let words = ['rock', 'paper', 'scissor'];
+    // BLoque CPU
+    function getComputerChoice () {
+        return words[Math.floor(Math.random()*words.length)];
+    }
 
+    const userChoice = userPromptLowerC();
+    
+    const pcChoice = getComputerChoice();
+console.log(userChoice);
+console.log(pcChoice);
+// Paso 3
+// Definir ganador comparando resultados. 
+playRound(userChoice, pcChoice);
+    function playRound (userChoice, pcChoice) {    
+       if (userChoice === pcChoice){
+        console.log("Its a tie!");
+       }
+       else if (userChoice === 'rock' && pcChoice === 'scissor' || userChoice === 'paper' && pcChoice === 'rock' || userChoice === 'scissor' && pcChoice === 'paper'){
+        console.log("You win!");
+        return userCount++;
+       }
+       else {
+        console.log("You lose!")
+        return pcCount++;
+       }
+    }
+
+
+
+console.log(userCount, pcCount)
+
+}
