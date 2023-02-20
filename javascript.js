@@ -1,9 +1,18 @@
 // Pseudocodigo guia 
 // Un loop que use generalBLock 5 veces
 function rounds(){
-    for (let round = 0; round < 5; round++){
+    for (let round = 0; pcCount < 5 || userCount < 5 ; round++){
         generalBlock();
+        if (pcCount === 5) break;
+       
+        else if (userCount === 5 ) break;
     }
+if (pcCount === 5){
+    console.log('The humanity cant be saved')
+}
+else {
+    console.log('Congrats you save humanity')
+}
 }
 
 // Paso 4
